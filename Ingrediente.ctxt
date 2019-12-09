@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Ingrediente
+comment1.params=s
+comment1.target=void\ o(java.lang.String)
+comment2.params=s
+comment2.target=void\ ol(java.lang.String)
+comment3.params=
+comment3.target=Ingrediente()
+comment4.params=
+comment4.target=java.lang.String\ getNome()
+comment5.params=
+comment5.target=int\ getQuantit\u00E0()
+comment6.params=variazione
+comment6.target=void\ modificaQuantit\u00E0(int)
+comment7.params=
+comment7.target=void\ compraIngrediente()
+comment8.params=
+comment8.target=void\ getIngrediente()
+numComments=9

@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Output
+comment1.params=s
+comment1.target=void\ o(java.lang.String)
+comment2.params=s
+comment2.target=void\ ol(java.lang.String)
+comment3.params=accessoAmministratori\ accessoClienti
+comment3.target=void\ men\u00F9Clienti(boolean,\ boolean)
+numComments=4
