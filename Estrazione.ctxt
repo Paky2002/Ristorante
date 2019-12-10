@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Estrazione
+comment1.params=s
+comment1.target=void\ ol(java.lang.String)
+comment2.params=s
+comment2.target=void\ o(java.lang.String)
+comment3.params=numeriGiocati\ totale\ garanzia
+comment3.target=Estrazione(int[],\ int,\ int)
+comment4.params=
+comment4.target=void\ estrazione()
+comment5.params=
+comment5.target=void\ vediEstratti()
+comment6.params=temp\ indice
+comment6.target=boolean\ controlli(int,\ int)
+comment7.params=
+comment7.target=void\ controlloIntegrale()
+numComments=8

@@ -1,12 +1,5 @@
-----------------------------------------------------------------------------------
-******** File README del progetto ********    Qui dovresti descrivere il progetto.
-Chi legge questo file, pur non sapendo nulla del progetto, dovrebbe ottenere tutte
-le informazioni di cui ha bisogno. Probabilmente le informazioni essenziali sono:
-----------------------------------------------------------------------------------
+NOME DEL PROGETTO:  SuperEnalotto
+OBIETTIVO DEL PROGETTO: Generare Sistemi Integrali / Ridotti
+VERSIONE oppure DATA: 22/11/2019
 
-NOME DEL PROGETTO:
-OBIETTIVO DEL PROGETTO
-VERSIONE oppure DATA:
-COME AVVIARE IL PROGETTO:
-AUTORI:
-ISTRUZIONI PER L'UTENTE:
+AUTORI: 4Ci (Castelluccia P. & DapolitoM.)

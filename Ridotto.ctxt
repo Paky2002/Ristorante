@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Ridotto
+comment1.params=numeriGiocati\ totale\ garanzia
+comment1.target=Ridotto(int[],\ int,\ int)
+comment2.params=
+comment2.target=void\ riduci()
+comment3.params=indice\ c
+comment3.target=int\ controllo(int,\ int)
+comment4.params=
+comment4.target=void\ vediRidotto()
+numComments=5
