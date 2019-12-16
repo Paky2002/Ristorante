@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Tavoli
+comment1.params=s
+comment1.target=void\ o(java.lang.String)
+comment2.params=s
+comment2.target=void\ ol(java.lang.String)
+comment3.params=
+comment3.target=Tavoli()
+comment4.params=
+comment4.target=void\ prenotaTavolo()
+comment5.params=
+comment5.target=void\ disdiciTavolo()
+comment6.params=
+comment6.target=void\ vediTavoli()
+comment7.params=
+comment7.target=void\ ordina()
+numComments=8

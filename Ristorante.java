@@ -1,5 +1,6 @@
 public class Ristorante
 {
+    
     private static void o (String s) {System.out.print (s);}
     private static void ol (String s) {System.out.println (s);}
     
@@ -8,11 +9,12 @@ public class Ristorante
         Ingrediente [] ingrediente = new Ingrediente [100];
         Input in = new Input (); 
         Output ou = new Output ();
-        Controlli controlli = new Controlli ();
-        Ricette [] ricette = new Ricette [100];
+        DataBase data = new DataBase ();
+        Inserisci inserisci = new Inserisci ();
+        Ricette ricette = new Ricette ();
+        Tavoli tavoli = new Tavoli ();
         
         int scelta = 0;
-        int totaleRicette = 0;
         int totaleIngredienti = 0;
         boolean accessoAmministratori = false;
         boolean accessoClienti = false;
@@ -28,14 +30,16 @@ public class Ristorante
             switch (scelta)
             {
                 case 0 :
-                    ol ("GRAZIE PER AVER USATO IL NOSTRO SOFTWEARE ");
+                   ol ("GRAZIE PER AVER USATO IL NOSTRO SOFTWEARE ");
+                    esci = true;
                     break;
                     
                 case 1 : 
+                    accessoClienti = true;
                     break;
                 
                 case 2 : 
-                     if (controlli.controllaPassword () == true)
+                     if (inserisci.controllaPassword () == true)
                      {
                          accessoAmministratori = true;
                      }
@@ -52,8 +56,7 @@ public class Ristorante
                     break;
                     
                 case 1 : 
-                    ingrediente [totaleIngredienti] = new Ingrediente ();
-                    ingrediente [totaleIngredienti] .compraIngrediente ();
+                    ingrediente [totaleIngredienti] = new Ingrediente (inserisci.inserisciNome (),inserisci.inserisciQuantità ());
                     totaleIngredienti++;
                     break;
                 
@@ -65,16 +68,38 @@ public class Ristorante
                     break;
                      
                 case 3 :
-                    ricette [totaleRicette] = new Ricette ();
-                    ricette [totaleRicette].aggiungiRicetta ();
-                    totaleRicette++;
+                    data.inserisciRicetta (inserisci.passaNomeRicetta(), inserisci.passaQuantitàRicetta (), inserisci.passaIngredienti (), inserisci.passaQuantità()); 
                     break;
                     
                 case 4 :
-                    for (int i = 0; i < totaleRicette; i++)
-                    {
-                        ricette [i].getRicette ();
-                    }
+                    data.leggiRicetta ();
+                    break;
+            }
+        }
+        
+        if (accessoAmministratori == false && accessoClienti == true)
+        {
+            switch (scelta)
+            {
+                case 0 :
+                    accessoClienti= false;
+                    break;
+                    
+                case 1 : 
+                    tavoli.prenotaTavolo ();
+                    break;
+                
+                case 2 : 
+                    tavoli.disdiciTavolo();
+                    break;
+                     
+                case 3 :
+                    tavoli.vediTavoli();
+                    break;
+                    
+                case 4 :
+                    tavoli.ordina();
+                    break;
             }
         }
         

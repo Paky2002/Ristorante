@@ -1,92 +1,189 @@
-import java.io.*;
 public class Inserisci
 {
     // variabili d'istanza - sostituisci l'esempio che segue con il tuo
-    final int DIMMAX = 90; //Massimo de numeri da poter giocare
-    private int [] numeriGiocati = new int [DIMMAX];
-    private int totale = 0;
-    private int garanzia = 0;
-    
-    
+    public String password = ("risto");
+    public int quantiIngredienti = 0;
+    public int [] quantitàIngredienti = new int [100];
+    public String [] unitàDiMisura = new String [100];
     Input in = new Input ();
+    public String nome;
     
-    private static void ol (String s) {System.out.println (s);}
-    private static void o (String s) {System.out.print (s);}
-    public Inserisci()
+    public Inserisci ()
     {
-        verificabilità();
+   
     }
 
-    public void inserisci () throws Exception //Metodo per inserire il tutto
-    {   
-        do{
-        ol ("QUANTI NUMERI VUOI INSERIRE ? ");
-        totale = in.readInt(); //Inserimento del totale
-            if(totale < 6 || totale > 90)
-                ol("**PUOI INSERIRE MINIMO 6 NUMERI**");
-        }while(totale < 6 || totale > 90);
-        
-        ol("INSERISCI I NUMERI : ");
-        for (int i = 0; i < totale; i++)
-        {
-            do{
-            o(i+1 + "- NUMERO ==> ");
-            numeriGiocati [i] = in.readInt();
-        }while (controllo (i,numeriGiocati [i]) == true); //Condizione condizionata dai controlli
-        }
-    }
+    private static void o (String s) {System.out.print (s);}
+    private static void ol (String s) {System.out.println (s);}
     
-    public boolean controllo (int indice, int temp ) //Metodo che controlla ogni numero immesso
+    public boolean controllaPassword () throws Exception
     {
-        if (temp <= 0 || temp > 90) //Controllo se è minore o maggiore di 90/0
+        // metti qui il tuo codice
+        String pass;
+        o ("INSERISCI LA PASSWORD : ");
+        pass = in.readString ();
+        
+        if (pass.equals(password))
         {
-            ol("**INSERISCI UN NUMERO COMPRESO TRA 1 - 90**");
+            ol ("PASSWORD GIUSTA ! ");
             return true;
         }
         
-        for (int i = 0; i < indice; i++) //Controllo se è un numero già stato immesso
+        ol ("PASSWORD ERRATA ! ");
+        return false;
+    }
+    
+    public String passaNomeRicetta () throws Exception
+    {
+        String nome;
+        
+        ol ("COME SI CHIAMA QUESTA RICETTA ? ");
+        nome = in.readString ();
+        
+        return nome;
+    }
+    
+    public int passaQuantitàRicetta () throws Exception
+    {   
+        ol ("QUANTI INGREDIENTI CI SONO ? ");
+        quantiIngredienti = in.readInt ();
+   
+        return quantiIngredienti;
+    }
+    
+    public String [] passaIngredienti () throws Exception
+    {
+        String [] Ingredienti = new String [100];
+        ol ("ff" +quantiIngredienti);
+        
+        for (int i = 0; i < quantiIngredienti; i++)
         {
-            if (temp == numeriGiocati [i])
+            ol ("INSERISCI IL NOME DELL'INGREDIENTE NUMERO " +(i+1));
+            Ingredienti [i] = in.readString ();
+            ol ("INSERISCI LA QUANTITA' DI " +Ingredienti [i]);
+            quantitàIngredienti [i] = in.readInt ();
+            controlloUnità (i);
+       }
+       
+       return Ingredienti;
+    }
+    
+    
+    public int [] passaQuantità () 
+    {
+        return quantitàIngredienti;
+    }
+    
+    public String [] passaUnità ()
+    {
+        return unitàDiMisura;
+    }
+    
+    
+    public void controlloUnità (int Indice) throws Exception
+    {
+        int scelta;
+        
+        do{
+            ol ("INSERISCI L' UNITA' DI MISURA ");
+            
+            ol ("1) GRAMMI ");
+            ol ("2) MILLILITRI ");
+            
+            scelta = in.readInt ();
+            
+            switch (scelta)
             {
-                ol("**ATTENZIONE NUMERO GIA' IMMESSO**");
-                return true;
+                case 1 : 
+                     unitàDiMisura [Indice] = "Gr";
+                     break;
+                     
+                case 2 :
+                     unitàDiMisura [Indice] = "Ml";
+                     break;
+            }
+            
+        }while (scelta > 2);
+    }
+    
+    public int controlloDisponibilità (int tav2, int tav4, int tav6, int temp)
+    {
+        if (temp == 2)
+        {
+            if (tav2 > 0)
+            {
+                return 1;
+            }
+            else
+            {
+                ol ("NON DISPONIBILE ");
+                return 0;
             }
         }
         
-        return false; //Se passa i controlli il numero sarà ritenuto valido
+        if (temp == 4)
+        {
+            if (tav4 > 0)
+            {
+                return 1;
+            }
+            else
+            {
+                ol ("NON DISPONIBILE ");
+                return 0;
+            }
+        }
+        
+        if (temp == 6)
+        {
+            if (tav6 > 0)
+            {
+                return 1;
+            }
+            else
+            {
+                ol ("NON DISPONIBILE ");
+                return 0;
+            }
+        }
+        
+        ol ("NON DISPONIBILE ");
+        return 0;
     }
     
-    public int verificabilità ()
+    public int controlloNome (String nomeInserito, String [] totaleNomi, int totaleTavoli)
     {
-        if (totale >= 10 && totale < 33)
+        int indice = 0;
+        
+        for (int i = 0; i < totaleTavoli; i++)
         {
-            garanzia = inserisciGaranzia ();
-            return garanzia;
-        }
-        else
-        {
-            ol("PER EFFETTUARE UN SISTEMA RIDOTTO BOSOGNA AVERE ALMENO 10 NUMERI");
-            garanzia = -1;  
-            return -1;
-        }
-    }
-    
-    public int inserisciGaranzia ()
-    {  
-        if(totale > 12 && totale < 20)
-        {
-            return 4;
+            if (nomeInserito.equals(totaleNomi [i]))
+            {
+                return i;
+            }
         }
         
-        if (totale > 19 && totale < 33)
-        {
-            return 3;
-        }
-        
-        return 5;
+        ol ("NOME NON TROVATO, NESSUNA CORRISPONDENZA");
+        return 0;
     }
     
-    public int[]  getNumeri () {return numeriGiocati;} //Funzione che ritorna il vettore dei numeri giocati
-    public int getTotale () {return totale;} // Funzione che ritorna il totale
-    public int getGaranzia () {return garanzia;}
-} 
+    public String inserisciNome () throws Exception
+    {    
+        ol ("INSERISCI NOME INGREDIENTE : ");
+        nome = in.readString ();
+        
+        return nome;
+    }
+    
+    public int inserisciQuantità () throws Exception
+    {
+        int quantità;
+        
+        ol ("INSERISCI QUANTITA' DI " +nome);
+        quantità = in.readInt ();
+        
+        return quantità;
+    }
+    
+    
+}

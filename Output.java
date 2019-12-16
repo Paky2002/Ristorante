@@ -30,6 +30,7 @@ public class Output
             ol ("0) TORNA AL MENU' PRINCIPALE");
             ol ("1) PRENOTA TAVOLO ");
             ol ("2) DISDICI TAVOLO "); 
+            ol ("3) ORDINA");
         }
         
     }

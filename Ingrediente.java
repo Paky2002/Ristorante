@@ -10,28 +10,20 @@ public class Ingrediente
     
     Input in = new Input ();
     
-    public Ingrediente ()
+    public Ingrediente (String nome, int quantità)
     {
-      
+        this.nome = nome;
+        this.quantità = quantità;
     }
 
-    public String getNome () {return nome;}
-    public int getQuantità () {return quantità;}
-    
     public void modificaQuantità (int variazione)
     {
         quantità -= variazione; 
     }
     
-    public void compraIngrediente () throws Exception
-    {
-        ol ("INSERISCI NOME INGREDIENTE : ");
-        nome = in.readString ();
-        
-        ol ("INSERISCI QUANTITA' DI " +nome);
-        quantità = in.readInt ();
-    }
-    
+    public String getNome () {return nome;}
+    public int getQuantità () {return quantità;}
+   
     public void getIngrediente ()
     {
         o("---" +nome);

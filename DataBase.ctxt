@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=DataBase
+comment1.params=
+comment1.target=DataBase()
+comment2.params=nome\ quantit\u00E0\ nomi\ quantit\u00E0I
+comment2.target=void\ inserisciRicetta(java.lang.String,\ int,\ java.lang.String[],\ int[])
+comment3.params=
+comment3.target=void\ leggiRicetta()
+comment4.params=nome\ quantit\u00E0\ nomi\ quantit\u00E0I
+comment4.target=void\ inserisciIngrediente(java.lang.String,\ int,\ java.lang.String[],\ int[])
+comment5.params=
+comment5.target=void\ leggiIngrediente()
+comment6.params=ordinato
+comment6.target=void\ varia(java.lang.String)
+comment7.params=ordinato
+comment7.target=void\ controllaSeCe(java.lang.String)
+numComments=8
